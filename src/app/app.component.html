@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>This Example will Bind components in different levels</h1>
+            <ol>
+                <li>Create three new Components: GameControl, Odd and Even</li>
+                <li>The GameControl Component should have buttons to start and stop the game</li>
+                <li>When Starting the game, an event( hold and incrementing number) should get emitted each second</li>
+                <li>When Stop the game should not emite more events</li>
+                <li>The Odd and Even just will output the odd or even number</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-game-control (intervalFired)="onIntervalFired($event)"></app-game-control>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <app-odd *ngFor="let oddNumber of oddNumbers" [number]="oddNumber"></app-odd>
+            <app-even *ngFor="let evenNumber of evenNumbers" [number]="evenNumber"></app-even>
+        </div>
+    </div>
+</div>
